@@ -41,6 +41,45 @@ INNER JOIN Generos ON FilmesGenero.IdGenero = Generos.Id WHERE Genero = 'Mistér
 SELECT PrimeiroNome, UltimoNome, Papel FROM Atores INNER JOIN ElencoFilme ON Atores.Id = ElencoFilme.IdAtor
 INNER JOIN Filmes ON Filmes.Id = ElencoFilme.IdFilme
 
+--Extra Learning 
+
+--selecionar nomes que tem G no meio e order por nome, depois sobrenome
+SELECT * FROM Atores WHERE Nome LIKE '%G%' ORDER BY Nome, Sobrenome
+SELECT * FROM Atores WHERE Nome LIKE '%G' ORDER BY Nome, Sobrenome
+--Count, Sum
+SELECT Count(*) NomeTotalDiego FROM Atores WHERE Nome = 'Diego'
+
+--MAX,MIN
+SELECT MAX(Idade) IdadeMaxima FROM Atores
+SELECT MIN(Idade) IdadeMinima FROM Atores
+SELECT AVG(Idade) IdadeMinima FROM Atores
+
+--concatenando strings
+SELECT Nome + ' - ' + Sobrenome FROM Atores
+
+--UPPER/LOWER
+SELECT UPPER(Nome) NOMECAPSLOCK FROM Atores
+
+--DATE FORMAT
+SELECT Nome, FORMAT(Data_Nascimento, 'dd-MM-yyyy HH:mm') DataFormatada FROM Atores
+
+--Group By : agrupando atores que nao tem 20 anos por cidade e no final ordenando do maior para o menor
+SELECT Cidade, Count(*) Total from Atores WHERE Idade <> 20 GROUP BY Cidade ORDER BY Total DESC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
